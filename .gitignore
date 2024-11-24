@@ -39,3 +39,6 @@ ScaffoldingReadMe.txt
 *.msi
 *.msm
 *.msp
+
+**/Images/
+
