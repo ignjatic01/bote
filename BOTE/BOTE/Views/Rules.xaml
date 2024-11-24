@@ -1,0 +1,28 @@
+﻿<Window x:Class="BOTE.Views.Rules"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOTE.Views"
+        mc:Ignorable="d"
+        Title="Rules" Height="650" Width="500"
+         Background="#2D2D2D" Foreground="White">
+
+    <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="#2D2D2D"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel>
+            <!-- Naslov - Rules -->
+            <TextBlock Text="Rules" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            <TextBlock Text="1. The game is played by two players on one computer. Before the game starts, both players choose their emperor." FontSize="18" Margin="20,20,20,20" TextWrapping="Wrap"/>
+            <TextBlock Text="2. The game takes place on a battlefield divided into 9 territories (3x3). Player 1 controls four territories and plays first. There are 3 types of troops: infantry, cavalry, and artillery. Each turn begins by drawing a card, which can provide the player with an additional unit or a special ability. In each turn, only one attack or no attacks at all can be made. When an attack is initiated, a battle begins. The winner of the battle is the one who has the most points in that battle. A battle can only occur between two adjacent fields.." FontSize="18" Margin="20, 20,20,20" TextWrapping="Wrap"/>
+            <TextBlock Text="3. The points are calculated as follows: 3 points per artillery, 2 points per cavalry, and 1 point per infantry. To the total points from the units, a number between 0 and 7 is added, representing a random external factor affecting the battle. If the attacker wins, they capture the territory. In case of defeat, the attacker loses all units on the territory, while the defending player loses one soldier from each type of unit." FontSize="18" Margin="20,20,20,20" TextWrapping="Wrap"/>
+            <TextBlock Text="4. The winner is the player who captures all the territories." FontSize="18" Margin="20,20,20,20" TextWrapping="Wrap"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

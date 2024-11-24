@@ -8,4 +8,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Fonts\Cinzel-Bold.ttf" />
+    <None Remove="Fonts\Cinzel-Regular.ttf" />
+    <None Remove="Images\bc2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Cinzel-Bold.ttf" />
+    <Resource Include="Fonts\Cinzel-Regular.ttf" />
+    <Resource Include="Images\bc2.png" />
+  </ItemGroup>
+
 </Project>

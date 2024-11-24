@@ -6,5 +6,33 @@
         xmlns:local="clr-namespace:BOTE"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+
+    <!-- Background with ImageBrush -->
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bc2.png" Stretch="Fill"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <ResourceDictionary Source="Resources/MainStyle.xaml" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Battle of the Emperors" Grid.Row="1" Style="{StaticResource BattleTitleStyle}"/>
+        <TextBlock Text="" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="3" Content="Play" Style="{StaticResource CustomButtonStyle}" />
+        <Button Grid.Row="4" Content="Rules" Style="{StaticResource CustomButtonStyle}" Click="OpenRules"/>
+        <TextBlock Text="" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
 </Window>
