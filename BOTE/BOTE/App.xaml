@@ -2,15 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:BOTE"
-             StartupUri="Views/SelectEmperor.xaml">
+             xmlns:local="clr-namespace:BOTE.Models"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
-
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Kreiranje Player objekata sa ispravnim Color tipom -->
+            <local:Player x:Key="Player1" Name="Player 1" Color="#ffffff" Selected="False" />
+            <local:Player x:Key="Player2" Name="Player 2" Color="#000000" Selected="False" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -27,5 +27,13 @@ namespace BOTE
             Rules rulesWin = new Rules();
             rulesWin.Show();
         }
+
+        private void OpenSelect(Object sender, RoutedEventArgs e)
+        {
+            SelectEmperor selectEmperor = new SelectEmperor();
+            Application.Current.MainWindow = selectEmperor;
+            this.Close();
+            selectEmperor.Show();
+        }
     }
 }

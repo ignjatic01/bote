@@ -7,18 +7,43 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BOTE.Views.SelectEmperor"
         mc:Ignorable="d"
         Title="SelectEmperor" Height="650" Width="1000"
-        Background="#2D2D2D" Foreground="White">
+        Background="#2D2D2D" Foreground="White"
+           FontFamily="pack://application:,,,/Fonts/#Cinzel">
     <Grid>
-        <Border BorderBrush="White" BorderThickness="2" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="SelectLabel" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">Player 1 select</TextBlock>
+
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Purple" CornerRadius="5" BorderThickness="1" Padding="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <!-- Image -->
-                <Image Source="../Images/baldwin.png" Width="200" Height="200" Stretch="UniformToFill"/>
+                <Image Source="pack://application:,,,/Images/baldwin.png" Width="250" Height="250" Stretch="UniformToFill"/>
+                <TextBlock Text="King Baldwin IV" FontSize="20" Padding="10" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                <Button x:Name="BaldwinButton" Content="Select" Width="150" Height="40" Background="#3A6B8E" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EmperorSelected"/>
+            </StackPanel>
+        </Border>
 
-                <!-- Title Text -->
-                <TextBlock Text="Your Title Here" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Red" CornerRadius="5" BorderThickness="1" Padding="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="pack://application:,,,/Images/dusan.png" Width="250" Height="250" Stretch="UniformToFill"/>
+                <TextBlock Text="Tsar Stefan IV Dušan" FontSize="20" Padding="10" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                <Button x:Name="DusanButton" Content="Select" Width="150" Height="40" Background="#3A6B8E" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EmperorSelected"/>
+            </StackPanel>
+        </Border>
 
-                <!-- Button -->
-                <Button Content="Click Me" Width="150" Height="40" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Border Grid.Row="1" Grid.Column="2" BorderBrush="Green" CornerRadius="5" BorderThickness="1" Padding="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="pack://application:,,,/Images/saladin.png" Width="250" Height="250" Stretch="UniformToFill"/>
+                <TextBlock Text="Sultan Salah ad-Din" FontSize="20" Padding="10" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                <Button x:Name="SaladinButton" Content="Select" Width="150" Height="40" Background="#3A6B8E" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EmperorSelected"/>
             </StackPanel>
         </Border>
     </Grid>
