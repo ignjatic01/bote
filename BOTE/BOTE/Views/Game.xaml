@@ -3,11 +3,82 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BOTE.Views"
+        xmlns:local="clr-namespace:BOTE.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Game" Height="450" Width="800">
-    <StackPanel>
-        <TextBlock FontSize="20" Text="{Binding Source={StaticResource Player1}, Path=Name}" />
-        <TextBlock FontSize="20" Text="{Binding Source={StaticResource Player2}, Path=Name}" />
-    </StackPanel>
+        Title="Game" Height="720" Width="1280"
+        Background="#2D2D2D" Foreground="White"
+        FontFamily="pack://application:,,,/Fonts/#Cinzel">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" 
+            Source="pack://application:,,,/Images/baldwin.png" 
+            Stretch="UniformToFill" 
+            Margin="10"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="30" 
+                   Text="{Binding Source={StaticResource Player1}, Path=Name}" 
+                   Padding="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" FontSize="40" Text="4"
+                  Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="4" FontSize="40" Text="5"
+            Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="5" FontSize="30" 
+           Text="{Binding Source={StaticResource Player2}, Path=Name}" 
+           Padding="10" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Image Grid.Row="0" Grid.Column="6" 
+            Source="pack://application:,,,/Images/saladin.png" 
+            Stretch="UniformToFill" 
+            Margin="10"/>
+        <Border Grid.Row="0"  Grid.ColumnSpan="7" BorderBrush="White" BorderThickness="0,0,0,2"/>
+        <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+            <TextBlock  Padding="20, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="3"></TextBlock>
+            <materialDesign:PackIcon   
+                Kind="Sword" Width="35" Height="35" VerticalAlignment="Center"/>
+            
+            <TextBlock  Padding="10, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="5"></TextBlock>
+            <materialDesign:PackIcon   
+                Kind="HorseVariantFast" Width="35" Height="35" VerticalAlignment="Center"/>
+
+            <TextBlock  Padding="10, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="2"></TextBlock>
+            <materialDesign:PackIcon   
+                Kind="Bomb" Width="35" Height="35" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="20" Text="Attacker wins (10:5)"/>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <TextBlock  Padding="20, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="4"></TextBlock>
+            <materialDesign:PackIcon   
+                Kind="Sword" Width="35" Height="35" VerticalAlignment="Center"/>
+
+            <TextBlock  Padding="10, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="4"></TextBlock>
+            <materialDesign:PackIcon   
+                Kind="HorseVariantFast" Width="35" Height="35" VerticalAlignment="Center"/>
+
+            <TextBlock  Padding="10, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="2"></TextBlock>
+            <materialDesign:PackIcon   
+                Kind="Bomb" Width="35" Height="35" VerticalAlignment="Center"/>
+            <TextBlock Padding="0, 0, 20, 0"/>
+        </StackPanel>
+        
+    </Grid>
 </Window>

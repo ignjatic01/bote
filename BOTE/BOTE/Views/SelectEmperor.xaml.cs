@@ -40,18 +40,23 @@ namespace BOTE.Views
                     player1.Selected = true;
                     if (button.Name == "BaldwinButton")
                     {
-                        player1.Name = "King Baldwin IV";
+                        player1.Name = "Baldwin IV";
                         player1.Color = "#3f2d47";
                     }
                     else if (button.Name == "DusanButton")
                     {
-                        player1.Name = "Tsar Stefan IV Dušan";
+                        player1.Name = "Tsar Dušan";
                         player1.Color = "#731111";
                     }
                     else if (button.Name == "SaladinButton")
                     {
-                        player1.Name = "Sultan Salah ad-Din";
+                        player1.Name = "Salah ad-Din";
                         player1.Color = "#255421";
+                    }
+                    else if (button.Name == "NevskyButton")
+                    {
+                        player1.Name = "Nevsky";
+                        player1.Color = "#66641e";
                     }
 
                     SelectLabel.Text = "Player 2 select";
@@ -61,20 +66,25 @@ namespace BOTE.Views
                     player2.Selected = true;
                     if (button.Name == "BaldwinButton")
                     {
-                        player2.Name = "King Baldwin IV";
+                        player2.Name = "Baldwin IV";
                         player2.Color = "#3f2d47";
                     }
                     else if (button.Name == "DusanButton")
                     {
-                        player2.Name = "Tsar Stefan IV Dušan";
+                        player2.Name = "Tsar Dušan";
                         player2.Color = "#731111";
                     }
                     else if (button.Name == "SaladinButton")
                     {
-                        player2.Name = "Sultan Salah ad-Din";
+                        player2.Name = "Salah ad-Din";
                         player2.Color = "#255421";
                     }
-                    
+                    else if (button.Name == "NevskyButton")
+                    {
+                        player2.Name = "Nevsky";
+                        player2.Color = "#66641e";
+                    }
+
                     Game game = new Game();
                     Application.Current.MainWindow = game;
                     this.Close();

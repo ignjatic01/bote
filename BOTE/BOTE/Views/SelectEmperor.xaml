@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BOTE.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="BOTE.Views.SelectEmperor"
         mc:Ignorable="d"
-        Title="SelectEmperor" Height="650" Width="1000"
+        Title="SelectEmperor" Height="700" Width="1100"
         Background="#2D2D2D" Foreground="White"
            FontFamily="pack://application:,,,/Fonts/#Cinzel">
     <Grid>
@@ -19,9 +19,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <TextBlock x:Name="SelectLabel" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">Player 1 select</TextBlock>
+ 
+        <TextBlock x:Name="SelectLabel" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">Player 1 select</TextBlock>
 
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="Purple" CornerRadius="5" BorderThickness="1" Padding="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -44,6 +45,14 @@
                 <Image Source="pack://application:,,,/Images/saladin.png" Width="250" Height="250" Stretch="UniformToFill"/>
                 <TextBlock Text="Sultan Salah ad-Din" FontSize="20" Padding="10" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
                 <Button x:Name="SaladinButton" Content="Select" Width="150" Height="40" Background="#3A6B8E" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EmperorSelected"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="3" BorderBrush="Gold" CornerRadius="5" BorderThickness="1" Padding="0 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="pack://application:,,,/Images/nevsky.png" Width="250" Height="250" Stretch="UniformToFill"/>
+                <TextBlock Text="Aleksander Nevsky" FontSize="20" Padding="10" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                <Button x:Name="NevskyButton" Content="Select" Width="150" Height="40" Background="#3A6B8E" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EmperorSelected"/>
             </StackPanel>
         </Border>
     </Grid>

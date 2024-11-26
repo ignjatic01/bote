@@ -14,6 +14,7 @@
     <None Remove="Images\baldwin.png" />
     <None Remove="Images\bc2.png" />
     <None Remove="Images\dusan.png" />
+    <None Remove="Images\nevsky.png" />
     <None Remove="Images\saladin.png" />
   </ItemGroup>
 
@@ -27,6 +28,7 @@
     <Resource Include="Images\baldwin.png" />
     <Resource Include="Images\bc2.png" />
     <Resource Include="Images\dusan.png" />
+    <Resource Include="Images\nevsky.png" />
     <Resource Include="Images\saladin.png" />
   </ItemGroup>
 

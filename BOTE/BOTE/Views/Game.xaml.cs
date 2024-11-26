@@ -22,6 +22,7 @@ namespace BOTE.Views
         public Game()
         {
             InitializeComponent();
+            
         }
     }
 }
