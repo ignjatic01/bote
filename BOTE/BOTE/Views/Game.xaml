@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BOTE.Views" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Game" Height="720" Width="1280"
+        Title="Game" Height="780" Width="1280"
         Background="#2D2D2D" Foreground="White"
         FontFamily="pack://application:,,,/Fonts/#Cinzel">
     <Window.Resources>
@@ -68,7 +68,7 @@
 
         <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="20" Text="Attacker wins (10:5)"/>
+                   FontSize="20" Text="{Binding StatusText}"/>
 
         <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Right">
             <TextBlock  Padding="20, 0 ,10, 0" VerticalAlignment="Center" FontSize="20" Text="{Binding numOfInfantry2}"></TextBlock>
@@ -84,8 +84,8 @@
                 Kind="Bomb" Width="35" Height="35" VerticalAlignment="Center"/>
             <TextBlock Padding="0, 0, 20, 0"/>
         </StackPanel>
-        
-        <Button Grid.Row="2" Grid.Column="2" Margin="10" Height="100" MinHeight="100">
+
+        <Button x:Name="Field0" Grid.Row="2" Grid.Column="2" Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
                     <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='0,0'}" />
@@ -99,7 +99,7 @@
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="2" Grid.Column="3" Margin="10" Height="100"  MinHeight="100">
+        <Button x:Name="Field1" Grid.Row="2" Grid.Column="3" Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
                     <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='1,0'}" />
@@ -113,7 +113,7 @@
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="2" Grid.Column="4" Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field2" Grid.Row="2" Grid.Column="4" Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
                     <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='2,0'}" />
@@ -127,99 +127,93 @@
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="3" Grid.Column="2"  Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field3" Grid.Row="3" Grid.Column="2"  Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='3,0'}" />
                     <materialDesign:PackIcon Kind="Sword" Width="20" Height="20" VerticalAlignment="Center"/>
-                    <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='3,1'}" />
                     <materialDesign:PackIcon Kind="HorseVariantFast" Width="20" Height="20" VerticalAlignment="Center"/>
                     <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='3,2'}" />
                     <materialDesign:PackIcon Kind="Bomb" Width="20" Height="20" VerticalAlignment="Center"/>
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="3" Grid.Column="3"  Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field4" Grid.Row="3" Grid.Column="3"  Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='4,0'}" />
                     <materialDesign:PackIcon Kind="Sword" Width="20" Height="20" VerticalAlignment="Center"/>
-                    <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='4,1'}" />
                     <materialDesign:PackIcon Kind="HorseVariantFast" Width="20" Height="20" VerticalAlignment="Center"/>
                     <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='4,2'}" />
                     <materialDesign:PackIcon Kind="Bomb" Width="20" Height="20" VerticalAlignment="Center"/>
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="3" Grid.Column="4"  Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field5" Grid.Row="3" Grid.Column="4"  Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='5,0'}" />
                     <materialDesign:PackIcon Kind="Sword" Width="20" Height="20" VerticalAlignment="Center"/>
-                    <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='5,1'}" />
                     <materialDesign:PackIcon Kind="HorseVariantFast" Width="20" Height="20" VerticalAlignment="Center"/>
                     <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='5,2'}" />
                     <materialDesign:PackIcon Kind="Bomb" Width="20" Height="20" VerticalAlignment="Center"/>
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="4" Grid.Column="2"  Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field6" Grid.Row="4" Grid.Column="2"  Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='6,0'}" />
                     <materialDesign:PackIcon Kind="Sword" Width="20" Height="20" VerticalAlignment="Center"/>
-                    <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='6,1'}" />
                     <materialDesign:PackIcon Kind="HorseVariantFast" Width="20" Height="20" VerticalAlignment="Center"/>
                     <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='6,2'}" />
                     <materialDesign:PackIcon Kind="Bomb" Width="20" Height="20" VerticalAlignment="Center"/>
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="4" Grid.Column="3"  Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field7" Grid.Row="4" Grid.Column="3"  Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='7,0'}" />
                     <materialDesign:PackIcon Kind="Sword" Width="20" Height="20" VerticalAlignment="Center"/>
-                    <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='7,1'}" />
                     <materialDesign:PackIcon Kind="HorseVariantFast" Width="20" Height="20" VerticalAlignment="Center"/>
                     <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='7,2'}" />
                     <materialDesign:PackIcon Kind="Bomb" Width="20" Height="20" VerticalAlignment="Center"/>
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="4" Grid.Column="4"  Margin="10" Height="100" MinHeight="100">
+        <Button x:Name="Field8" Grid.Row="4" Grid.Column="4"  Margin="10" Height="90" MinHeight="50" Click="onFieldClick">
             <Button.Content>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='8,0'}" />
                     <materialDesign:PackIcon Kind="Sword" Width="20" Height="20" VerticalAlignment="Center"/>
-                    <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='8,1'}" />
                     <materialDesign:PackIcon Kind="HorseVariantFast" Width="20" Height="20" VerticalAlignment="Center"/>
                     <LineBreak />
-                    <TextBlock Text="2" />
+                    <TextBlock FontSize="18" Text="{Binding Path=BattlefieldUnits, Converter={StaticResource ArrayIndexConverter}, ConverterParameter='8,2'}" />
                     <materialDesign:PackIcon Kind="Bomb" Width="20" Height="20" VerticalAlignment="Center"/>
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <Button Grid.Row="5" Grid.Column="0" Content="Draw a card" Style="{StaticResource CustomButtonStyle}"/>
-        <Button Grid.Row="5" Grid.Column="3" Content="Attack" Style="{StaticResource CustomButtonStyle}"/>
-        <Button Grid.Row="5" Grid.Column="6" Content="Next turn" Style="{StaticResource CustomButtonStyle}"/>
+        <Button x:Name="DrawCard" Grid.Row="5" Grid.Column="0" Content="Draw a card" Style="{StaticResource CustomButtonStyle}" Click="DrawCardEvent"/>
+        <Button x:Name="Attack" Grid.Row="5" Grid.Column="3" Content="Attack" Style="{StaticResource CustomButtonStyle}"/>
+        <Button x:Name="NextTurn" Grid.Row="5" Grid.Column="6" Content="Next turn" Style="{StaticResource CustomButtonStyle}"/>
 
     </Grid>
 </Window>
