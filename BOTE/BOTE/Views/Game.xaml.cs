@@ -15,33 +15,24 @@ using System.Windows.Shapes;
 
 namespace BOTE.Views
 {
-    /// <summary>
-    /// Interaction logic for game.xaml
-    /// </summary>
     public partial class Game : Window
     {
-        public string imagePath = "pack://application:,,,/Images/";
-        public string baldwinName = "Baldwin IV";
-        public string dusanName = "Tsar Dušan";
-        public string saladinName = "Salah ad-Din";
-        public string nevskyName = "Nevsky";
-
         //Help Text
         public string StatusText { get; set; }
 
         //Fields in possession
-        public int numOfFields1 { get; set; } = 4;
-        public int numOfFields2 { get; set; } = 5;
+        public int NumOfFields1 { get; set; } = 4;
+        public int NumOfFields2 { get; set; } = 5;
 
         //Player 1 units
-        public int numOfInfantry1 { get; set; } = 0;
-        public int numOfCavalry1 { get; set; } = 0;
-        public int numOfCannons1 { get; set; } = 0;
+        public int NumOfInfantry1 { get; set; } = 0;
+        public int NumOfCavalry1 { get; set; } = 0;
+        public int NumOfCannons1 { get; set; } = 0;
 
         //Player 1 units
-        public int numOfInfantry2 { get; set; } = 0;
-        public int numOfCavalry2 { get; set; } = 0;
-        public int numOfCannons2 { get; set; } = 0;
+        public int NumOfInfantry2 { get; set; } = 0;
+        public int NumOfCavalry2 { get; set; } = 0;
+        public int NumOfCannons2 { get; set; } = 0;
 
         //Battlefield units
         public int[,] BattlefieldUnits { get; set; } = new int[9, 3];
@@ -54,74 +45,44 @@ namespace BOTE.Views
         private Button[,] Battlefield;
 
         //teritories
-        private List<Button> player1Fields = new List<Button>();
-        private List<Button> player2Fields = new List<Button>();
+        private List<Button> Player1Fields = new List<Button>();
+        private List<Button> Player2Fields = new List<Button>();
 
         //game flags
-        public bool firstPlayerTurn {  get; set; } = true;
-        public bool cardPullPhase { get; set; } = true;
+        public bool FirstPlayerTurn {  get; set; } = true;
+        public bool CardPullPhase { get; set; } = true;
 
-        public bool selectingReinforcementsField { get; set; } = false;
-        public bool selectAttackField { get; set; } = false;
-        public bool selectDefendField { get; set; } = false;
-        public bool attackPhase { get; set; } = false;
-        public bool selectOpponentField { get; set; } = false;
-        public bool nextMove {  get; set; } = false;
+        public bool SelectingReinforcementsField { get; set; } = false;
+        public bool SelectAttackField { get; set; } = false;
+        public bool SelectDefendField { get; set; } = false;
+        public bool AttackPhase { get; set; } = false;
+        public bool SelectOpponentField { get; set; } = false;
+        public bool NextMove {  get; set; } = false;
         
         //temp
-        public int numOfUnits { get; set; } = 0;
-        public int troopId { get; set; } = 0;
-        public Button attackField { get; set; }
-        public Button defendField { get; set; }
+        public int NumOfUnits { get; set; } = 0;
+        public int TroopId { get; set; } = 0;
+        public Button AttackField { get; set; }
+        public Button DefendField { get; set; }
 
         public int AttackFX { get; set; }
         public int AttackFY { get; set; }
         public int DefendFX { get; set; }
         public int DefendFY { get; set; }
+
+        Player Player1 = (Player)Application.Current.Resources["Player1"];
+        Player Player2 = (Player)Application.Current.Resources["Player2"];
         public Game()
         {
             InitializeComponent();
-            Player player1 = (Player)Application.Current.Resources["Player1"];
-            Player player2 = (Player)Application.Current.Resources["Player2"];
 
-            if (player1.Name == baldwinName)
-            {
-                Player1ImageSourcePath = imagePath + "baldwin.png";
-            }
-            else if (player1.Name.Equals(dusanName))
-            {
-                Player1ImageSourcePath = imagePath + "dusan.png";
-            }
-            else if (player1.Name == saladinName)
-            {
-                Player1ImageSourcePath = imagePath + "saladin.png";
-            }
-            else if(player1.Name == nevskyName)
-            {
-                Player1ImageSourcePath = imagePath + "nevsky.png";
-            }
-
-            if (player2.Name == baldwinName)
-            {
-                Player2ImageSourcePath = imagePath + "baldwin.png";
-            }
-            else if (player2.Name == dusanName)
-            {
-                Player2ImageSourcePath = imagePath + "dusan.png";
-            }
-            else if (player2.Name == saladinName)
-            {
-                Player2ImageSourcePath = imagePath + "saladin.png";
-            }
-            else if (player2.Name == nevskyName)
-            {
-                Player2ImageSourcePath = imagePath + "nevsky.png";
-            }
+            Player1ImageSourcePath = Player1.Image;
+            Player2ImageSourcePath = Player2.Image;
 
             Battlefield = new Button[,] { { Field0, Field1, Field2 }, { Field3, Field4, Field5 }, { Field6, Field7, Field8 } };
 
-            var player1Brush = new BrushConverter().ConvertFromString(player1.Color) as Brush;
-            var player2Brush = new BrushConverter().ConvertFromString(player2.Color) as Brush;
+            var player1Brush = new BrushConverter().ConvertFromString(Player1.Color) as Brush;
+            var player2Brush = new BrushConverter().ConvertFromString(Player2.Color) as Brush;
 
             int k = 0;
             for (int i = 0; i < 3; i++)
@@ -134,16 +95,15 @@ namespace BOTE.Views
                         {
                             Battlefield[i, j].Background = player1Brush;
                             Battlefield[i, j].IsEnabled = false;
-                            player1Fields.Add(Battlefield[i, j]);
+                            Player1Fields.Add(Battlefield[i, j]);
                         }
                         else
                         {
                             Battlefield[i, j].Background = player2Brush;
                             Battlefield[i, j].IsEnabled = false;
-                            player2Fields.Add(Battlefield[i, j]);
+                            Player2Fields.Add(Battlefield[i, j]);
                         }
                     }
-
                     k++;
                 }
             }
@@ -159,47 +119,48 @@ namespace BOTE.Views
         private void DrawCardEvent(Object sender, RoutedEventArgs e)
         {
             Random random = new Random();
-            numOfUnits = random.Next(1, 4);
             int typeOfUnit = random.Next(10);
-            if (firstPlayerTurn)
+            if (FirstPlayerTurn)
             {
+                NumOfUnits = random.Next(1, Player1Fields.Count);
                 if (typeOfUnit < 5)
                 {
-                    numOfInfantry1 += numOfUnits;
-                    troopId = 0;
+                    NumOfInfantry1 += NumOfUnits;
+                    TroopId = 0;
                 }
                 else if (typeOfUnit >= 5 && typeOfUnit < 8)
                 {
-                    numOfCavalry1 += numOfUnits;
-                    troopId = 1;
+                    NumOfCavalry1 += NumOfUnits;
+                    TroopId = 1;
                 }
                 else 
                 { 
-                    numOfCannons1 += numOfUnits;
-                    troopId = 2;
+                    NumOfCannons1 += NumOfUnits;
+                    TroopId = 2;
                 }
 
-                foreach (Button field in player1Fields)
+                foreach (Button field in Player1Fields)
                 {
                     field.IsEnabled = true;
                 }
             }
             else
             {
+                NumOfUnits = random.Next(1, Player2Fields.Count);
                 if (typeOfUnit < 5)
                 {
-                    numOfInfantry2 += numOfUnits;
+                    NumOfInfantry2 += NumOfUnits;
                 }
                 else if (typeOfUnit >= 5 && typeOfUnit < 8)
                 {
-                    numOfCavalry2 += numOfUnits;
+                    NumOfCavalry2 += NumOfUnits;
                 }
                 else
                 {
-                    numOfCannons2 += numOfUnits;
+                    NumOfCannons2 += NumOfUnits;
                 }
 
-                foreach (Button field in player2Fields)
+                foreach (Button field in Player2Fields)
                 {
                     field.IsEnabled = true;
                 }
@@ -208,11 +169,10 @@ namespace BOTE.Views
             StatusText = "Choose where to move troops";
             DrawCard.IsEnabled = false;
 
-            selectingReinforcementsField = true;
+            SelectingReinforcementsField = true;
 
             Dispatcher.Invoke(() =>
             {
-                // Ovdje se mogu vršiti promene koje trebaju biti odražene u UI-u
                 this.DataContext = null;
                 this.DataContext = this;
             });
@@ -221,7 +181,7 @@ namespace BOTE.Views
         private void onFieldClick(Object sender, RoutedEventArgs e)
         {
             Button field = (Button)sender;
-            if(selectingReinforcementsField)
+            if (SelectingReinforcementsField)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -229,33 +189,33 @@ namespace BOTE.Views
                     {
                         if (field.Name == Battlefield[i, j].Name)
                         {
-                            BattlefieldUnits[i * 3 + j, troopId] += numOfUnits;
+                            BattlefieldUnits[i * 3 + j, TroopId] += NumOfUnits;
                             break;
                         }
                     }
                 }
-                selectingReinforcementsField = false;
-                selectAttackField = true;
-                StatusText = "Select your camp for battle"; 
+                SelectingReinforcementsField = false;
+                SelectAttackField = true;
+                StatusText = "Select your camp for battle";
             }
-            else if(selectAttackField)
+            else if (SelectAttackField)
             {
-                attackField = field;
-                attackField.BorderBrush = new BrushConverter().ConvertFromString("gold") as Brush;
-                attackField.BorderThickness = new Thickness(6);
-                selectAttackField = false;
-                
+                AttackField = field;
+                AttackField.BorderBrush = new BrushConverter().ConvertFromString("gold") as Brush;
+                AttackField.BorderThickness = new Thickness(6);
+                SelectAttackField = false;
+
                 StatusText = "Select target field";
-                if(firstPlayerTurn)
+                if (FirstPlayerTurn)
                 {
-                    foreach (Button fld in player1Fields)
+                    foreach (Button fld in Player1Fields)
                     {
                         fld.IsEnabled = false;
                     }
                 }
                 else
                 {
-                    foreach (Button fld in player2Fields)
+                    foreach (Button fld in Player2Fields)
                     {
                         fld.IsEnabled = false;
                     }
@@ -265,7 +225,7 @@ namespace BOTE.Views
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if (Battlefield[i, j] == attackField)
+                        if (Battlefield[i, j] == AttackField)
                         {
                             AttackFX = x = i;
                             AttackFY = y = j;
@@ -281,9 +241,9 @@ namespace BOTE.Views
                     {
                         if ((i - 1 == x && j == y) || (i + 1 == x && j == y) || (j - 1 == y && i == x) || (j + 1 == y && i == x))
                         {
-                            if(firstPlayerTurn)
+                            if (FirstPlayerTurn)
                             {
-                                if (player2Fields.Contains(Battlefield[i,j]))
+                                if (Player2Fields.Contains(Battlefield[i, j]))
                                 {
                                     Battlefield[i, j].IsEnabled = true;
                                     counter++;
@@ -291,7 +251,7 @@ namespace BOTE.Views
                             }
                             else
                             {
-                                if(player1Fields.Contains(Battlefield[i,j]))
+                                if (Player1Fields.Contains(Battlefield[i, j]))
                                 {
                                     Battlefield[i, j].IsEnabled = true;
                                     counter++;
@@ -301,24 +261,37 @@ namespace BOTE.Views
                     }
                 }
 
-                if(counter > 0)
+                if (counter > 0)
                 {
-                    selectDefendField = true;
+                    SelectDefendField = true;
                 }
             }
-            else if(selectDefendField)
+            else if (SelectDefendField)
             {
-                defendField = field;
-                defendField.BorderBrush = new BrushConverter().ConvertFromString("gold") as Brush;
-                defendField.BorderThickness = new Thickness(6);
-                selectDefendField = false;
-                attackPhase = true;
+                DefendField = field;
+                DefendField.BorderBrush = new BrushConverter().ConvertFromString("gold") as Brush;
+                DefendField.BorderThickness = new Thickness(6);
+                SelectDefendField = false;
+                AttackPhase = true;
+                Attack.IsEnabled = true;
+            }
 
+            Dispatcher.Invoke(() =>
+            {
+                this.DataContext = null;
+                this.DataContext = this;
+            });
+        }
+
+        private void AttackBtn(Object sender, RoutedEventArgs e)
+        {
+            if (AttackPhase)
+            { 
                 for (int i = 0; i < 3; i++)
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if (Battlefield[i, j] == defendField)
+                        if (Battlefield[i, j] == DefendField)
                         {
                             DefendFX = i;
                             DefendFY = j;
@@ -332,23 +305,110 @@ namespace BOTE.Views
                 int randFact1 = random.Next(7);
                 int randFact2 = random.Next(7);
 
-                if (firstPlayerTurn)
+                int index1 = AttackFX * 3 + AttackFY;
+                int index2 = DefendFX * 3 + DefendFY;
+
+                if (FirstPlayerTurn)
                 {
-                    int index1 = AttackFX * 3 + AttackFY;
-                    int index2 = DefendFX * 3 + DefendFY;
-                    int player1Points = randFact1 + BattlefieldUnits[index1, 2] * 3 + BattlefieldUnits[index2, 1] * 2 + BattlefieldUnits[index1, 0];
+                    int player1Points = randFact1 + BattlefieldUnits[index1, 2] * 3 + BattlefieldUnits[index1, 1] * 2 + BattlefieldUnits[index1, 0];
                     int player2Points = randFact2 + BattlefieldUnits[index2, 2] * 3 + BattlefieldUnits[index2, 1] * 2 + BattlefieldUnits[index2, 0];
                     StatusText = "Player 1: " + player1Points + "(" + randFact1 + ") - Player 2: " + player2Points + "(" + randFact2 + ")";
+                    if (player1Points > player2Points)
+                    {
+                        Player2Fields.Remove(DefendField);
+                        Player1Fields.Add(DefendField);
+                        var player1Brush = new BrushConverter().ConvertFromString(Player1.Color) as Brush;
+                        DefendField.Background = player1Brush;
+                        for (int i = 0; i < 3; i++)
+                        {
+                            BattlefieldUnits[index2, i] /= 2;
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            BattlefieldUnits[index1, i] /= 2;
+                        }
+                    }
                 }
                 else
                 {
+                    int player1Points = randFact1 + BattlefieldUnits[index2, 2] * 3 + BattlefieldUnits[index2, 1] * 2 + BattlefieldUnits[index2, 0];
+                    int player2Points = randFact2 + BattlefieldUnits[index1, 2] * 3 + BattlefieldUnits[index1, 1] * 2 + BattlefieldUnits[index1, 0];
+                    StatusText = "Player 1: " + player1Points + "(" + randFact1 + ") - Player 2: " + player2Points + "(" + randFact2 + ")";
+                    if (player2Points > player1Points)
+                    {
+                        Player1Fields.Remove(DefendField);
+                        Player2Fields.Add(DefendField);
+                        var player2Brush = new BrushConverter().ConvertFromString(Player2.Color) as Brush;
+                        DefendField.Background = player2Brush;
+                        for (int i = 0; i < 3; i++)
+                        {
+                            BattlefieldUnits[index2, i] /= 2;
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            BattlefieldUnits[index1, i] /= 2;
+                        }
+                    }
+                }
+                AttackPhase = false;
+                NextMove = true;
+                Attack.IsEnabled = false;
+                NextTurn.IsEnabled = true;
 
+                NumOfFields1 = Player1Fields.Count;
+                NumOfFields2 = Player2Fields.Count;
+
+                Dispatcher.Invoke(() =>
+                {
+                    this.DataContext = null;
+                    this.DataContext = this;
+                });
+            }
+        }
+
+        private void NextTurnBtn(Object sender, RoutedEventArgs e)
+        {
+            if (NextMove)
+            {
+                DefendField.BorderBrush = new BrushConverter().ConvertFromString("white") as Brush;
+                DefendField.BorderThickness = new Thickness(1);
+                AttackField.BorderBrush = new BrushConverter().ConvertFromString("white") as Brush;
+                AttackField.BorderThickness = new Thickness(1);
+                NextMove = false;
+                NextTurn.IsEnabled = false;
+                DrawCard.IsEnabled = true;
+                foreach (var item in Battlefield)
+                {
+                    item.IsEnabled = false;
+                }
+                if(FirstPlayerTurn)
+                {
+                    FirstPlayerTurn = false;
+                }
+                else
+                {
+                    FirstPlayerTurn = true;
+                }
+                if(Player1Fields.Count == 0)
+                {
+                    StatusText = "Player 2 Wins";
+                    DrawCard.IsEnabled = false;
+                }
+                else if(Player2Fields.Count == 0)
+                {
+                    StatusText = "Player 1 Wins";
+                    DrawCard.IsEnabled = false;
                 }
             }
 
             Dispatcher.Invoke(() =>
             {
-                // Ovdje se mogu vršiti promene koje trebaju biti odražene u UI-u
                 this.DataContext = null;
                 this.DataContext = this;
             });

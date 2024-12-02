@@ -13,6 +13,13 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
+	<Style x:Key="ButtonField" TargetType="Button">
+		<Setter Property="Margin" Value="10" />
+		<Setter Property="Height" Value="90" />
+		<Setter Property="MinHeight" Value="50" />
+		<Setter Property="BorderBrush" Value="White" />
+	</Style>
+
     <Style x:Key="CustomButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="#3A6B8E" />
         <Setter Property="Foreground" Value="White" />
@@ -23,7 +30,8 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="FontSize" Value="18" />
-
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="White" />
         <!-- Stil za dugme pri prelazu miša -->
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">

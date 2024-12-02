@@ -20,6 +20,7 @@ namespace BOTE.Views
     /// </summary>
     public partial class SelectEmperor : Window
     {
+        public string imagePath = "pack://application:,,,/Images/";
         public SelectEmperor()
         {
             InitializeComponent();
@@ -42,21 +43,25 @@ namespace BOTE.Views
                     {
                         player1.Name = "Baldwin IV";
                         player1.Color = "#3f2d47";
+                        player1.Image = imagePath + "baldwin.png";
                     }
                     else if (button.Name == "DusanButton")
                     {
                         player1.Name = "Tsar Dušan";
                         player1.Color = "#731111";
+                        player1.Image = imagePath + "dusan.png";
                     }
                     else if (button.Name == "SaladinButton")
                     {
                         player1.Name = "Salah ad-Din";
                         player1.Color = "#255421";
+                        player1.Image = imagePath + "saladin.png";
                     }
                     else if (button.Name == "NevskyButton")
                     {
                         player1.Name = "Nevsky";
                         player1.Color = "#66641e";
+                        player1.Image = imagePath + "nevsky.png";
                     }
 
                     SelectLabel.Text = "Player 2 select";
@@ -68,21 +73,25 @@ namespace BOTE.Views
                     {
                         player2.Name = "Baldwin IV";
                         player2.Color = "#3f2d47";
+                        player2.Image = imagePath + "baldwin.png";
                     }
                     else if (button.Name == "DusanButton")
                     {
                         player2.Name = "Tsar Dušan";
                         player2.Color = "#731111";
+                        player2.Image = imagePath + "dusan.png";
                     }
                     else if (button.Name == "SaladinButton")
                     {
                         player2.Name = "Salah ad-Din";
                         player2.Color = "#255421";
+                        player2.Image = imagePath + "saladin.png";
                     }
                     else if (button.Name == "NevskyButton")
                     {
                         player2.Name = "Nevsky";
                         player2.Color = "#66641e";
+                        player2.Image = imagePath + "nevsky.png";
                     }
 
                     Game game = new Game();

@@ -12,8 +12,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Kreiranje Player objekata sa ispravnim Color tipom -->
-            <local:Player x:Key="Player1" Name="Player 1" Color="#ffffff" Selected="False" />
-            <local:Player x:Key="Player2" Name="Player 2" Color="#000000" Selected="False" />
+            <local:Player x:Key="Player1" Name="Player 1" Color="#ffffff" Selected="False" Image=""/>
+            <local:Player x:Key="Player2" Name="Player 2" Color="#000000" Selected="False" Image="" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

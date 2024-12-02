@@ -11,6 +11,7 @@ namespace BOTE.Models
     {
         private string _name;
         private string _color;
+        private string _image;
         private bool _selected;
 
         public string Name
@@ -35,6 +36,19 @@ namespace BOTE.Models
                 {
                     _color = value;
                     OnPropertyChanged("Color");
+                }
+            }
+        }
+
+        public string Image
+        {
+            get { return _image; }
+            set
+            {
+                if (_image != value)
+                {
+                    _image = value;
+                    OnPropertyChanged("Image");
                 }
             }
         }
