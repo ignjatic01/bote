@@ -70,6 +70,12 @@ namespace BOTE.Views
         public int DefendFX { get; set; }
         public int DefendFY { get; set; }
 
+        //Card images
+        public string Knight = "knight";
+        public string Cavalry = "cavalry";
+        public string Catapult = "catapult";
+        public string ImageExtension = ".png";
+
         Player Player1 = (Player)Application.Current.Resources["Player1"];
         Player Player2 = (Player)Application.Current.Resources["Player2"];
         public Game()
@@ -150,14 +156,17 @@ namespace BOTE.Views
                 if (typeOfUnit < 5)
                 {
                     NumOfInfantry2 += NumOfUnits;
+                    TroopId = 0;
                 }
                 else if (typeOfUnit >= 5 && typeOfUnit < 8)
                 {
                     NumOfCavalry2 += NumOfUnits;
+                    TroopId = 1;
                 }
                 else
                 {
                     NumOfCannons2 += NumOfUnits;
+                    TroopId = 2;
                 }
 
                 foreach (Button field in Player2Fields)
@@ -165,6 +174,23 @@ namespace BOTE.Views
                     field.IsEnabled = true;
                 }
             }
+
+            Card card;
+
+            if(TroopId == 0)
+            {
+                card = new Card(Knight + ImageExtension, Knight + " x " + NumOfUnits);
+            }
+            else if(TroopId == 1)
+            {
+                card = new Card(Cavalry + ImageExtension, Cavalry + " x " + NumOfUnits);
+            }
+            else
+            {
+                card = new Card(Catapult + ImageExtension, Catapult + " x " + NumOfUnits);
+            }
+
+            card.ShowDialog();
 
             StatusText = "Choose where to move troops";
             DrawCard.IsEnabled = false;

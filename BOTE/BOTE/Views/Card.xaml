@@ -1,0 +1,18 @@
+﻿<Window x:Class="BOTE.Views.Card"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOTE.Views"
+        mc:Ignorable="d"
+        Title="Card" Height="450" Width="300"
+        Background="#2D2D2D" Foreground="White"
+        FontFamily="pack://application:,,,/Fonts/#Cinzel">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="Img" Source="{Binding CardImage}" Width="250" Height="350" Stretch="Uniform"/>
+            <TextBlock x:Name="Info" Text="Opis slike" Margin="0,10,0,0" 
+                       TextAlignment="Center" FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window>
