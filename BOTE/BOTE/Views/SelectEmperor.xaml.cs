@@ -21,9 +21,11 @@ namespace BOTE.Views
     public partial class SelectEmperor : Window
     {
         public string imagePath = "pack://application:,,,/Images/";
-        public SelectEmperor()
+        private static int pow = 1;
+        public SelectEmperor(int p)
         {
             InitializeComponent();
+            pow = p;
         }
 
         private void EmperorSelected(Object sender, RoutedEventArgs e)
@@ -94,7 +96,7 @@ namespace BOTE.Views
                         player2.Image = imagePath + "nevsky.png";
                     }
 
-                    Game game = new Game();
+                    Game game = new Game(pow);
                     Application.Current.MainWindow = game;
                     this.Close();
                     game.Show();

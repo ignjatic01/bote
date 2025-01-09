@@ -30,7 +30,15 @@ namespace BOTE
 
         private void OpenSelect(Object sender, RoutedEventArgs e)
         {
-            SelectEmperor selectEmperor = new SelectEmperor();
+            SelectEmperor selectEmperor = new SelectEmperor(1);
+            Application.Current.MainWindow = selectEmperor;
+            this.Close();
+            selectEmperor.Show();
+        }
+
+        private void OpenSelect2(Object sender, RoutedEventArgs e)
+        {
+            SelectEmperor selectEmperor = new SelectEmperor(2);
             Application.Current.MainWindow = selectEmperor;
             this.Close();
             selectEmperor.Show();

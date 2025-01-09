@@ -78,10 +78,13 @@ namespace BOTE.Views
 
         Player Player1 = (Player)Application.Current.Resources["Player1"];
         Player Player2 = (Player)Application.Current.Resources["Player2"];
-        public Game()
+
+        private static int pow = 1;
+        public Game(int p)
         {
             InitializeComponent();
 
+            pow = p;
             Player1ImageSourcePath = Player1.Image;
             Player2ImageSourcePath = Player2.Image;
 
@@ -128,7 +131,7 @@ namespace BOTE.Views
             int typeOfUnit = random.Next(10);
             if (FirstPlayerTurn)
             {
-                NumOfUnits = random.Next(1, Player1Fields.Count);
+                NumOfUnits = random.Next(1, Player1Fields.Count) * pow;
                 if (typeOfUnit < 5)
                 {
                     NumOfInfantry1 += NumOfUnits;
@@ -152,7 +155,7 @@ namespace BOTE.Views
             }
             else
             {
-                NumOfUnits = random.Next(1, Player2Fields.Count);
+                NumOfUnits = random.Next(1, Player2Fields.Count) * pow;
                 if (typeOfUnit < 5)
                 {
                     NumOfInfantry2 += NumOfUnits;

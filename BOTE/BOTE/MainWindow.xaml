@@ -24,14 +24,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Text="Battle of the Emperors" Grid.Row="1" Style="{StaticResource BattleTitleStyle}"/>
         <TextBlock Text="" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="3" Content="Play" Style="{StaticResource CustomButtonStyle}" Click="OpenSelect"/>
-        <Button Grid.Row="4" Content="Rules" Style="{StaticResource CustomButtonStyle}" Click="OpenRules"/>
+        <Button Grid.Row="3" Content="Play Standard" Style="{StaticResource CustomButtonStyle}" Click="OpenSelect"/>
+        <Button Grid.Row="4" Content="Play Boosted" Style="{StaticResource CustomButtonStyle}" Click="OpenSelect2"/>
+        <Button Grid.Row="5" Content="Rules" Style="{StaticResource CustomButtonStyle}" Click="OpenRules"/>
         <TextBlock Text="" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Text="" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
